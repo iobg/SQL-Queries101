@@ -27,8 +27,7 @@ JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
 JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
 JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
 
-9.
-	a. SELECT Invoice.*, SUM(Invoice.Total) AS 'Year Total' FROM Invoice
+9.	a. SELECT Invoice.*, SUM(Invoice.Total) AS 'Year Total' FROM Invoice
 	WHERE InvoiceDate > '2009-01-01 00:00:00' AND InvoiceDate < '2010-01-01 00:00:00'
 	b. SELECT Invoice.*, SUM(Invoice.Total) AS 'Year Total' FROM Invoice
 	WHERE InvoiceDate > '2010-01-01 00:00:00' AND InvoiceDate < '2011-01-01 00:00:00'
