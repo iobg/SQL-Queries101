@@ -63,6 +63,13 @@ JOIN Album ON Track.AlbumId = Album.AlbumId
 JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId
 JOIN Genre ON Track.GenreId = Genre.GenreId
 
-17.
+17.SELECT Invoice.*, COUNT(InvoiceLine.InvoiceId) AS 'Invoice Line'  FROM Invoice
+JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+GROUP BY Invoice.InvoiceId
+
+18.SELECT  Employee.FirstName ||' '|| Employee.LastName AS 'Name',SUM(Invoice.total) AS 'Total Sales' FROM Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+GROUP BY Name
 
 
