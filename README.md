@@ -72,4 +72,68 @@ JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
 JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
 GROUP BY Name
 
+19.SELECT  Employee.FirstName ||' '|| Employee.LastName AS 'Name',SUM(Invoice.total) AS 'Total Sales' FROM Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+WHERE InvoiceDate > '2009-01-01 00:00:00' AND InvoiceDate < '2010-01-01 00:00:00'
+GROUP BY Name 
+
+Steve Johnson
+
+20.SELECT  Employee.FirstName ||' '|| Employee.LastName AS 'Name',SUM(Invoice.total) AS 'Total Sales' FROM Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+WHERE InvoiceDate > '2010-01-01 00:00:00' AND InvoiceDate < '2011-01-01 00:00:00'
+GROUP BY Name 
+
+Jane Peacock
+
+21.SELECT  Employee.FirstName ||' '|| Employee.LastName AS 'Name',SUM(Invoice.total) AS 'Total Sales' FROM Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+GROUP BY Name
+
+Jane Peacock
+
+22.SELECT  Employee.FirstName ||' '|| Employee.LastName AS 'Name',COUNT(Customer.CustomerId) AS 'Customers' FROM Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+GROUP BY Name
+
+23.SELECT  Invoice.BillingCountry,SUM(Invoice.Total) AS 'Sales' FROM Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+GROUP BY Invoice.BillingCountry 
+
+USA
+
+24.SELECT Track.Name,Count(Track.TrackId) AS 'TracksSold' FROM Invoice
+JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+WHERE InvoiceDate > '2013-01-01 00:00:00' AND InvoiceDate < '2014-01-01 00:00:00'
+GROUP BY Track.Name
+ORDER BY TracksSold DESC LIMIT 1
+
+25.SELECT Track.Name,Count(Track.TrackId) AS 'TracksSold' FROM Invoice
+JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+GROUP BY Track.Name
+ORDER BY TracksSold DESC LIMIT 5
+
+26.SELECT Artist.Name,Count(Artist.ArtistId) AS 'Sales' FROM Invoice
+JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+JOIN Album ON Track.AlbumId = Album.AlbumId
+JOIN Artist ON Album.ArtistId = Artist.ArtistId
+GROUP BY Artist.Name
+ORDER BY Sales DESC LIMIT 3
+
+27.SELECT MediaType.Name,Count(MediaType.MediaTypeId) AS 'Sales' FROM Invoice
+JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId
+GROUP BY MediaType.Name
+ORDER BY Sales DESC LIMIT 1
+
+
 
