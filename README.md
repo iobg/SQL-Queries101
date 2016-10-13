@@ -18,22 +18,22 @@ ORDER BY Invoice.BillingCountry
 6. SELECT * FROM Invoice
 WHERE Invoice.BillingCountry = "Brazil"
 
-7.  SELECT Employee.FirstName ||' '|| Employee.LastName as Name, Invoice.*
+7. SELECT Employee.FirstName ||' '|| Employee.LastName as Name, Invoice.*
 FROM Invoice
 JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
 JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
 
-8.Employee.FirstName ||' '|| Employee.LastName as Name, SUM(Invoice.Total) as Total, Customer.FirstName,Invoice.BillingCountry
+8. SELECT Employee.FirstName ||' '|| Employee.LastName as Name, SUM(Invoice.Total) as Total, Customer.FirstName,Invoice.BillingCountry
 JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
 JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
 
 9.
-a. SELECT Invoice.*, SUM(Invoice.Total) AS 'Year Total' FROM Invoice
-WHERE InvoiceDate > '2009-01-01 00:00:00' AND InvoiceDate < '2010-01-01 00:00:00'
-b. SELECT Invoice.*, SUM(Invoice.Total) AS 'Year Total' FROM Invoice
-WHERE InvoiceDate > '2010-01-01 00:00:00' AND InvoiceDate < '2011-01-01 00:00:00'
-c. SELECT Invoice.*, SUM(Invoice.Total) AS 'Year Total' FROM Invoice
-WHERE InvoiceDate > '2011-01-01 00:00:00' AND InvoiceDate < '2012-01-01 00:00:00'
+	a. SELECT Invoice.*, SUM(Invoice.Total) AS 'Year Total' FROM Invoice
+	WHERE InvoiceDate > '2009-01-01 00:00:00' AND InvoiceDate < '2010-01-01 00:00:00'
+	b. SELECT Invoice.*, SUM(Invoice.Total) AS 'Year Total' FROM Invoice
+	WHERE InvoiceDate > '2010-01-01 00:00:00' AND InvoiceDate < '2011-01-01 00:00:00'
+	c. SELECT Invoice.*, SUM(Invoice.Total) AS 'Year Total' FROM Invoice
+	WHERE InvoiceDate > '2011-01-01 00:00:00' AND InvoiceDate < '2012-01-01 00:00:00'
 
 10. SELECT Invoice.*, COUNT(InvoiceLine.InvoiceId)  FROM Invoice
 JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
